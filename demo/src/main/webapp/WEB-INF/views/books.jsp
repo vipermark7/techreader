@@ -1,11 +1,15 @@
-<!DOCTYPE html> <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-	<body>
-	    <h1>Add Book</h1>
-	    <form:form method="post" modelAttribute="bookForm" action="${pageContext.request.contextPath}/books">
-	        <form:input path="title" type="text" /> 
-	        <button type="submit">Add</button> 
-	    </form:form>
-	</body>
+<body>
+	<h1>Books</h1>
+	<a href="<c:url value="/books/add" />">Add Books</a>
+	<c:if test="${not empty books}">
+		<ul>
+			<c:forEach var="book" items="${books}">
+				<li><c:out value="${book.title}" /></li>
+			</c:forEach>
+		</ul>
+	</c:if>
+</body>
 </html>
