@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -23,14 +24,24 @@ public class BookController {
 		mav.addObject("books", books);
 		return mav;
 	} 
+	
 	@RequestMapping("/add")
 	public String add(Model model){
 		model.addAttribute("bookForm", new Book());
 		return "add";
 	} 
-	@RequestMapping(value = {"", "/"}, method=POST)
+	
+	@RequestMapping(value={"", "/"}, method=POST)
 	public RedirectView addBook(Book book) {
 		bookRepository.saveAndFlush(book);
 		return new RedirectView("books");
+	}
+	
+	@RequestMapping("delete/{bookId}")
+	public String delete(@PathVariable (name="bookId") int bookId, Model model) {
+		long longId = bookId;
+		Book book = bookRepository.getOne(longId);
+		bookRepository.delete(book);
+		return "redirect:/books";
 	}
 }
