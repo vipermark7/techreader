@@ -6,17 +6,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+
 public class Book {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	String title;
+	String authorName;
+	String description;
+	double rating;
+	String date;
+	String availability;
 
 	public Book() {
 	}
 
-	public Book(String title) {
+	public Book(String title, String description, String authorName, String date, String availability) {
 		this.title = title;
+		this.description = description;
+		this.authorName = authorName;
+		this.availability = availability;
+		this.date = date;
+	}
+
+	public Book(double rating) {
+		this.rating = rating;
 	}
 
 	public Long getId() {
@@ -34,4 +49,45 @@ public class Book {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public double getRating() {
+		return rating;
+	}
+
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public String getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 }

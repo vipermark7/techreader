@@ -8,7 +8,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/")
 public class IndexController {
 	@RequestMapping("/")
-	public RedirectView index() {
+	public RedirectView Index() {
 		return new RedirectView("books");
 	}
 }

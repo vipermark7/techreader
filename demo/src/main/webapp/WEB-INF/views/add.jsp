@@ -1,12 +1,34 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <html>
-	<body>
-		<h1>Add Book</h1>
-		<form:form method="post" modelAttribute="bookForm" action="${pageContext.request.contextPath}/books">
-			<form:input path="title" type="text" /> 
-			<button type="submit">Add</button>
-		</form:form>
-	</body>
+<body>
+
+<form method="post" action="${pageContext.request.contextPath }/books">
+Title of Book:<br>
+  <input type="text" name="title"><br>
+ 
+  Author's Name:<br>
+  <input type="text" name="authorName"><br>
+ 
+  Book Summary:<br>
+  <input type="text" name="description"><br>
+ 
+  Rating:<br>
+  <input type="number" name="rating" max="5" min="0">
+ 
+  <br>
+  <br>
+ 
+  Date Added:<br>
+  <input type="date" name="date"><br>
+ 
+  Read Yet?:<br>
+  <input type="radio" name="availability" value="Yes">Yes<br>
+    <input type="radio" name="availability" value="No">No<br>
+ 
+<input type="submit" value="Submit" /></form>
+</body>
 </html>
