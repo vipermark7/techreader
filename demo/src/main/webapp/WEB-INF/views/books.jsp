@@ -14,7 +14,7 @@
 				<li>Author: <c:out value="${book.authorName}" /></li>
 				<li>Rating: <c:out value="${book.rating}" /></li>
 				<a href="/books/details/${book.id}">Details |</a>
-				<a href="/books/edit/${book.id}">Edit |</a>
+				<a href="<c:url value = "/books/edit/${book.id} "/>" >Edit |</a>
 				<a href="/books/delete/${book.id}">Delete |</a>
 				<br>
 

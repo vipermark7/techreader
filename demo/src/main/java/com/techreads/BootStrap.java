@@ -14,7 +14,7 @@ public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		if (bookRepository.count() < 3) {
-			bookRepository.save(new Book("Beginning Groovy and Grails", "he wore hair", "he wore hair", null, null));
+			bookRepository.save(new Book("Beginning Groovy and Grails", "Chris Judd", "", null, null));
 			bookRepository.save(new Book("Pro Eclipse JST", "he wore hair", "he wore hair", null, null));
 			bookRepository.save(new Book("Enterprise Java Development on a Budget", "he wore hair", "he wore hair", null, null));
 		}

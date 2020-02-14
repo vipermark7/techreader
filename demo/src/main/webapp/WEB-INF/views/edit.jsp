@@ -10,6 +10,7 @@
 
 	<form:form method="post" modelAttribute="book"
 		action="${pageContext.request.contextPath}/books">
+		<form:input path = "id" type="hidden" readonly="readonly" />
 
 		<p>Title</p>
 		<form:input path="title" value="${book.title}" />
